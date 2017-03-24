@@ -1,0 +1,22 @@
+{
+  "name": "@bjblayney/devenv",
+  "version": "1.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bjblayney/npm-devenv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bjblayney/npm-devenv/issues"
+  },
+  "homepage": "https://github.com/bjblayney/npm-devenv#readme",
+  "description": "first package",
+  "dependencies": {
+    "@linclark/pkg": "^1.0.2"
+  }
+}
