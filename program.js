@@ -1,21 +1,40 @@
-// Filtered LS
+//Make it modular
 var fs = require('fs'),
     path = require('path'),
+    mymodule = require('./mymodule.js'),
     mydir = process.argv[2],
-    ext1 = '.' + process.argv[3];
+    ext1 = process.argv[3];
 
-fs.readdir(mydir, function(err, files){
+var callback = function (err, files) {
     if(err){
         throw err
     }
-    //console.log(files);
-    files.forEach(function(filename){
-        var ext = path.extname(filename);
-        if(ext == ext1){
-            console.log(filename);
-        }
+    files.forEach(function (file) {
+        console.log(file);
     });
-});
+}
+
+mymodule(mydir, ext1, callback);
+
+
+// // Filtered LS
+// var fs = require('fs'),
+//     path = require('path'),
+//     mydir = process.argv[2],
+//     ext1 = '.' + process.argv[3];
+
+// fs.readdir(mydir, function(err, files){
+//     if(err){
+//         throw err
+//     }
+//     //console.log(files);
+//     files.forEach(function(filename){
+//         var ext = path.extname(filename);
+//         if(ext == ext1){
+//             console.log(filename);
+//         }
+//     });
+// });
 
 //MY FIRST ASYNC I/O!
 // var fs = require('fs'),
