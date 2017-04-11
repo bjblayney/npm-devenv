@@ -27,3 +27,6 @@ alert(s);
 
 ### Make it modular
 A module encapsulates related code into a single unit of code. When creating a module, this can be interpreted as moving all related functions into a file.
+
+### HTTP Client
+The response object / Stream that you get from http.get() also has a setEncoding() method. If you call this method with "utf8", the "data" events will emit Strings rather than the standard Node Buffer objects which you have to explicitly convert to Strings. 

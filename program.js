@@ -1,20 +1,39 @@
-//Make it modular
-var fs = require('fs'),
-    path = require('path'),
-    mymodule = require('./mymodule.js'),
-    mydir = process.argv[2],
-    ext1 = process.argv[3];
-
-var callback = function (err, files) {
-    if(err){
-        throw err
-    }
-    files.forEach(function (file) {
-        console.log(file);
+//HTTP Client
+var http = require('http'),
+    myUrl = process.argv[2];
+    
+http.get(myUrl, function callback (response) {
+    
+    response.setEncoding('utf8');
+    
+    response.on('error', function(error) {
+        console.error('This is the error message:' + error);
     });
-}
+    
+    response.on('data', function(data) {
+        console.log(data);
+    });
+    
+});
 
-mymodule(mydir, ext1, callback);
+
+//Make it modular
+// var fs = require('fs'),
+//     path = require('path'),
+//     mymodule = require('./mymodule.js'),
+//     mydir = process.argv[2],
+//     ext1 = process.argv[3];
+
+// var callback = function (err, files) {
+//     if(err){
+//         throw err
+//     }
+//     files.forEach(function (file) {
+//         console.log(file);
+//     });
+// }
+
+// mymodule(mydir, ext1, callback);
 
 
 // // Filtered LS
