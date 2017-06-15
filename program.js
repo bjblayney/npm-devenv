@@ -1,20 +1,39 @@
-//HTTP Client
-var http = require('http'),
-    myUrl = process.argv[2];
-    
-http.get(myUrl, function callback (response) {
-    
-    response.setEncoding('utf8');
-    
-    response.on('error', function(error) {
-        console.error('This is the error message:' + error);
-    });
-    
-    response.on('data', function(data) {
-        console.log(data);
-    });
-    
+//HTTP Collect
+var http = require('http');
+var result = ''
+var req = http.get(process.argv[2], (response)=>{
+	response.setEncoding('utf8');
+	response.on('data', (data)=>{
+		result+=data.toString();
+	});
+	response.on('error', (e)=>{
+	console.log(e);
+	});
+	response.on('end',()=>{
+		console.log(result.length);
+		console.log(result);
+		result='';
+	});
 });
+
+
+//HTTP Client
+// var http = require('http'),
+//     myUrl = process.argv[2];
+    
+// http.get(myUrl, function callback (response) {
+    
+//     response.setEncoding('utf8');
+    
+//     response.on('error', function(error) {
+//         console.error('This is the error message:' + error);
+//     });
+    
+//     response.on('data', function(data) {
+//         console.log(data);
+//     });
+    
+// });
 
 
 //Make it modular
